@@ -1,15 +1,15 @@
 # Hellcase - Data Scrape and Probability Manipulation
 
-![Hellcase.jpg](attachment:3c65051e-3d4b-4f03-9e52-874c0c2fb4e1.jpg)
+![Hellcase](images/Hellcase.jpg)
 
 ## Table of Contents
 
 * [Intro](#Intro)
-* [Import Libraries](#Part-1:-Import-Libraries)
-* [First Scrape](#Part-2:-First-Scrape)
-* [Create Depdendencies](#Part-3:-Create-Dependencies)
-* [Second Scrape](#Part-4:-Second-Scrape)
-* [Data Analysis](#Part-5:-Data-Analysis)
+* [Import Libraries](#Part-1-Import-Libraries)
+* [First Scrape](#Part-2-First-Scrape)
+* [Create Depdendencies](#Part-3-Create-Dependencies)
+* [Second Scrape](#Part-4-Second-Scrape)
+* [Data Analysis](#Part-5-Data-Analysis)
 * [Conclusions](#Conclusions)
 * [Shortcomings and Potential Improvements](#Shortcomings-and-Potential-Improvements)
 * [Detailed Step-by-Step Walkthrough](#Detailed-Step-by-Step-Walkthrough)
@@ -29,7 +29,7 @@ Because of the format of the code, I have to run lots of lines simultaneously, s
   
 I hope you enjoy this piece and make sure to take a look at the conclusions section for some eye-opening analysis!
 
-## Part 1: Import Libraries
+## Part 1 Import Libraries
 
 
 ```python
@@ -43,7 +43,7 @@ import numpy as np
 from urllib.parse import urlparse, parse_qs
 ```
 
-## Part 2: First Scrape
+## Part 2 First Scrape
 
 
 ```python
@@ -82,7 +82,7 @@ for category_class in categories.keys():
 driver.quit()
 ```
 
-## Part 3: Create Dependencies
+## Part 3 Create Dependencies
 
 
 ```python
@@ -105,7 +105,7 @@ if 'cat-stickers' in categories:
     del categories['cat-stickers']
 ```
 
-## Part 4: Second Scrape
+## Part 4 Second Scrape
 
 
 ```python
@@ -235,7 +235,7 @@ df_final = pd.concat([df_final, df_iteration], ignore_index=True)
     AttributeError: 'NoneType' object has no attribute 'click'
 
 
-## Part 5: Data Analysis
+## Part 5 Data Analysis
 
 
 ```python
@@ -921,7 +921,7 @@ The website include the odds of each wear of each skin but it is hidden behind a
 This line of code goes through each skin, and click the button to show the odds.
 I added a Try, Except here because once you click through enough skins and the website scrolls down, a pop-up appears, changing the XPATH of the button that needs to be pressed.
 Here is a gif showing how this process looks like:
-![Scroll Feature.gif](attachment:610fc4a0-bc25-4923-bfdd-73551f8842a5.gif)
+![Button Clicking](images/Scroll_Feature.gif)
 ```
             for i in range(num_weapons):
                 try:
@@ -944,7 +944,7 @@ The columns contain information such as Name of Wear, Price, and Drop Rate.
     
 We then look for a class attribute called Stattrak. If it exists, we add 'ST' to the wear. For example A Stat trak Minimal Wear Prince AWP would have 'MW ST' for it's wear.
     
-![scroll.gif](attachment:b5a66cd3-3e5c-48b0-9851-ec0ab8f19a61.gif)
+![Scrolling](images/scroll.gif)
 ```
             tables = driver.find_elements(By.TAG_NAME, 'tbody')
 
